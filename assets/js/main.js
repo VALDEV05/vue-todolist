@@ -25,8 +25,8 @@
         -L'utente vuole poter modificare una task giá inserita
         //-Quando una task é stata completa allora vuole che venga inserita in un'altra colonna tipo "tasks completate"
         //se una task é stata marcata come completa per sbaglio allora vuole poterla rimettere nella todo list (cliccando su un altra icona)
-        -dice che quando cancella una task non vuole che questa venga subito rimossa, 
-        -ma vuole che resti visibile ma venga spostata in una colonna tipo "cestino"
+        //-dice che quando cancella una task non vuole che questa venga subito rimossa, 
+        //-ma vuole che resti visibile ma venga spostata in una colonna tipo "cestino"
         -dice infine che vuole poter rimuovere tutte le tasks nel cestino cliccando su un pulsante tipo "svuota cestino"
 
  */

@@ -78,8 +78,8 @@
                         </div>
                     </div>
                     <div v-else></div>
-                    <!-- section trash task -->
 
+                    <!-- section trash task -->
                     <div class="tasks bg-light p-3 rounded-3 mx-4" v-if="deletes.length > 0">
 
                         <div class="title">{{titleTrash}}</div>
@@ -91,8 +91,6 @@
                             <span @click="returnTask(i)">
                                 <i class="fas fa-trash-restore"></i>
                             </span>
-
-
                         </div>
                     </div>
                     <div v-else></div>
