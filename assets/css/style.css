@@ -1,0 +1,28 @@
+:root {
+    --background-page-color: #B0C4DE;
+    --background-task-color: #D3D3D3;
+}
+
+.page {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--background-page-color)
+}
+
+.error {
+    text-align: center;
+    font-size: 15px;
+}
+
+.toDoList {
+    width: 300px;
+}
+
+.task,
+.completionMessage {
+    background-color: var(--background-task-color);
+}
+
+.bulletList {
+    font-size: 12px;
+}

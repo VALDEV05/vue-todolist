@@ -18,10 +18,15 @@
         //-Se non ci sono piu task nella lista, mostrate un messaggio tipo "Nulla da fare"
         -ma vuole anche poter indicare che la task é stata completata (con un icona cliccabile)
         -Quando l'utente inserisce una task ha due modi per salvarla: o preme il pulsante add o preme il taso Enter della tastiera.
-        -Attenzione: l'utente non deve inserire tasks vuote ma almeno un tot di caratteri. */
+        //-Attenzione: l'utente non deve inserire tasks vuote ma almeno un tot di caratteri. */
 var app = new Vue({
     el: '#app',
     data: {
+        title: 'Todo List',
+        logoImage: 'https://www.boolean.careers/images/misc/logo.png',
+        placeInput: 'Add a new task',
+        errorMessage: 'Enter a new task (minimum 5 characters)',
+        completionMessage: 'You got nothing to do today, rest!!',
         newTask: '',
         tasks: [
             'Fare la spesa',
@@ -34,7 +39,7 @@ var app = new Vue({
     methods: {
         addTasks() {
             //added the required control, that is that the newTask must be at least 5 characters long and present otherwise shows an error message
-            if (this.newTask != '' && this.newTask.length > 5) {
+            if (this.newTask != '' && this.newTask.length >= 5) {
                 this.tasks.push(this.newTask)
                 this.error = false
             } else {
