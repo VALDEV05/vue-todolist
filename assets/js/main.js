@@ -19,17 +19,30 @@
         //-ma vuole anche poter indicare che la task é stata completata (con un icona cliccabile)
         //-Quando l'utente inserisce una task ha due modi per salvarla: o preme il pulsante add o preme il taso Enter della tastiera.
         //-Attenzione: l'utente non deve inserire tasks vuote ma almeno un tot di caratteri. */
+
+
+/* Bonus:
+        -L'utente vuole poter modificare una task giá inserita
+        //-Quando una task é stata completa allora vuole che venga inserita in un'altra colonna tipo "tasks completate"
+        //se una task é stata marcata come completa per sbaglio allora vuole poterla rimettere nella todo list (cliccando su un altra icona)
+        -dice che quando cancella una task non vuole che questa venga subito rimossa, 
+        -ma vuole che resti visibile ma venga spostata in una colonna tipo "cestino"
+        -dice infine che vuole poter rimuovere tutte le tasks nel cestino cliccando su un pulsante tipo "svuota cestino"
+
+ */
 var app = new Vue({
     el: '#app',
     data: {
         titleTask: 'Todo List',
-        titleSave: 'Complete',
+        titleSave: 'Complete tasks',
+        titleTrash: 'Trash',
         logoImage: 'https://www.boolean.careers/images/misc/logo.png',
         placeInput: 'Add a new task',
         errorMessage: 'Enter a new task (minimum 5 characters)',
         completionMessage: 'You got nothing to do today, rest!!',
         newTask: '',
         saves: [],
+        deletes: [],
         tasks: [
             'Fare la spesa',
             'Porta fuori il cane',
@@ -54,7 +67,9 @@ var app = new Vue({
             //control that at the click of the delete button actually erases the task
             /* console.log('remove task' + ' ' + i); */
             //i use the . splice() method as parameter needs the indece of the task to be deleted and the number of items to be deleted from that index.
+            this.deletes.push(this.tasks[i])
             this.tasks.splice(i, 1);
+
         },
         completeTask(i) {
             this.saves.push(this.tasks[i])
@@ -63,6 +78,10 @@ var app = new Vue({
         reundoTask(i) {
             this.tasks.push(this.saves[i])
             this.saves.splice(i, 1)
+        },
+        returnTask(i) {
+            this.tasks.push(this.deletes[i])
+            this.deletes.splice(i, 1)
         }
     }
 })
