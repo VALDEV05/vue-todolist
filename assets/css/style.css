@@ -39,3 +39,13 @@
     background-color: var(--background-btn-color) !important;
     padding: 4px 8px !important;
 }
+
+.iconUndo {
+    background-color: black;
+    font-size: 10px;
+    color: var(--background-task-color);
+    padding: 3px;
+    border-radius: 50%;
+    margin-left: 3px;
+    margin-bottom: 5px;
+}

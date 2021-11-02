@@ -37,34 +37,52 @@
                 <!-- Section of AddTasks -->
                 <div class="addTasks mb-3">
                     <!-- Here the user will enter the new task -->
-                    <input type="text" class="inputTask" v-model="newTask" :placeholder="placeInput">
-                    <button class="btn btn-secondary" v-on:click="addTasks">Add</button>
+                    <input type="text" class="inputTask" v-model="newTask" :placeholder="placeInput" @keyup.enter="addTasks">
+                    <button class="btn btn-secondary" @click="addTasks">Add</button>
                     <p class="text-muted text-center" v-if="error == false">Add a simple task to do</p>
                     <!-- Message to show in case the user entered task does not respect the rules to be added -->
                     <div class="error text-muted" v-show="error">
                         <p>{{errorMessage}}</p>
                     </div>
                 </div>
-
-                <!-- Section To Do List -->
-                <div class="toDoList bg-light p-3 rounded-3">
-                    <div class="title ">{{title}}</div>
-                    <div class="tasks" v-if="tasks.length > 0">
-                        <!-- Title -->
-                        <div class="task ps-2" v-for="(task, i) in tasks">
-                            <span class="bulletList pe-2">
+                <div class="list d-flex ">
+                    <!-- Section To Do List -->
+                    <div class="toDoList bg-light p-3 rounded-3 mx-4">
+                        <div class="title ">{{titleTask}}</div>
+                        <div class="tasks" v-if="tasks.length > 0">
+                            <!-- Title -->
+                            <div class="task ps-2" v-for="(task, i) in tasks">
+                                <span class="bulletList pe-2">
                                 <i class="fas fa-dot-circle"></i>
                             </span> {{task}}
-                            <span v-on:click="removeTasks(i)">
+                                <span><i class="fas fa-check-circle" @click="completeTask(i)"></i></span>
+                                <span v-on:click="removeTasks(i)">
                                 <i class="fas fa-times-circle"></i>
                             </span>
+                            </div>
+                            <div class="result"></div>
+                        </div>
+                        <!-- to-do list completion message -->
+                        <div class="completionMessage text-center" v-else>{{completionMessage}}</div>
+                    </div>
+
+                    <!-- section complete task -->
+                    <div class="tasks bg-light p-3 rounded-3 mx-4" v-if="saves.length > 0">
+                        <div class="title">{{titleSave}}</div>
+                        <div class="task ps-2" v-for="(save, i) in saves">
+                            <span class="bulletList pe-2">
+                                <i class="fas fa-dot-circle"></i>
+                            </span> {{save}}
+                            <span @click="reundoTask(i)"><i class="iconUndo fas fa-undo "></i></span>
+
                         </div>
                     </div>
-                    <!-- to-do list completion message -->
-                    <div class="completionMessage text-center" v-else>{{completionMessage}}</div>
+                    <div v-else></div>
                 </div>
             </div>
+
         </div>
+    </div>
 
 
     </div>

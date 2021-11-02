@@ -16,25 +16,27 @@
         //-L'utente puó inserire nuove tasks
         //-Cliccando sulla "X" l'utente puó cancellare una task
         //-Se non ci sono piu task nella lista, mostrate un messaggio tipo "Nulla da fare"
-        -ma vuole anche poter indicare che la task é stata completata (con un icona cliccabile)
-        -Quando l'utente inserisce una task ha due modi per salvarla: o preme il pulsante add o preme il taso Enter della tastiera.
+        //-ma vuole anche poter indicare che la task é stata completata (con un icona cliccabile)
+        //-Quando l'utente inserisce una task ha due modi per salvarla: o preme il pulsante add o preme il taso Enter della tastiera.
         //-Attenzione: l'utente non deve inserire tasks vuote ma almeno un tot di caratteri. */
 var app = new Vue({
     el: '#app',
     data: {
-        title: 'Todo List',
+        titleTask: 'Todo List',
+        titleSave: 'Complete',
         logoImage: 'https://www.boolean.careers/images/misc/logo.png',
         placeInput: 'Add a new task',
         errorMessage: 'Enter a new task (minimum 5 characters)',
         completionMessage: 'You got nothing to do today, rest!!',
         newTask: '',
+        saves: [],
         tasks: [
             'Fare la spesa',
             'Porta fuori il cane',
             'Studia VueJS',
             'controlla la To Do List'
         ],
-        error: false
+        error: false,
     },
     methods: {
         addTasks() {
@@ -53,6 +55,14 @@ var app = new Vue({
             /* console.log('remove task' + ' ' + i); */
             //i use the . splice() method as parameter needs the indece of the task to be deleted and the number of items to be deleted from that index.
             this.tasks.splice(i, 1);
+        },
+        completeTask(i) {
+            this.saves.push(this.tasks[i])
+            this.tasks.splice(i, 1)
+        },
+        reundoTask(i) {
+            this.tasks.push(this.saves[i])
+            this.saves.splice(i, 1)
         }
     }
 })
