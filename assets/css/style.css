@@ -1,6 +1,7 @@
 :root {
     --background-page-color: #B0C4DE;
     --background-task-color: #D3D3D3;
+    --background-btn-color: #EFEFEF
 }
 
 .page {
@@ -25,4 +26,16 @@
 
 .bulletList {
     font-size: 12px;
+}
+
+.inputTask {
+    padding: 4px 8px !important;
+    border-radius: 8px !important;
+    border: 2px solid black !important;
+}
+
+.btn-secondary {
+    color: rgb(0, 0, 0)!important;
+    background-color: var(--background-btn-color) !important;
+    padding: 4px 8px !important;
 }

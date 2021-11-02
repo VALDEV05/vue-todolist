@@ -22,7 +22,7 @@
 
 
     <div id="app">
-        <div class="page">
+        <div class="page d-flex justify-content-center align-items-center">
             <!-- In here we’ll put all our layout -->
             <div class="container d-flex justify-content-center align-items-center flex-column">
 
@@ -37,8 +37,9 @@
                 <!-- Section of AddTasks -->
                 <div class="addTasks mb-3">
                     <!-- Here the user will enter the new task -->
-                    <input type="text" v-model="newTask" :placeholder="placeInput">
-                    <button v-on:click="addTasks">Add</button>
+                    <input type="text" class="inputTask" v-model="newTask" :placeholder="placeInput">
+                    <button class="btn btn-secondary" v-on:click="addTasks">Add</button>
+                    <p class="text-muted text-center" v-if="error == false">Add a simple task to do</p>
                     <!-- Message to show in case the user entered task does not respect the rules to be added -->
                     <div class="error text-muted" v-show="error">
                         <p>{{errorMessage}}</p>
@@ -47,7 +48,7 @@
 
                 <!-- Section To Do List -->
                 <div class="toDoList bg-light p-3 rounded-3">
-                    <div class="title">{{title}}</div>
+                    <div class="title ">{{title}}</div>
                     <div class="tasks" v-if="tasks.length > 0">
                         <!-- Title -->
                         <div class="task ps-2" v-for="(task, i) in tasks">
