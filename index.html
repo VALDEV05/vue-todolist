@@ -60,7 +60,6 @@
                                 <i class="fas fa-trash-alt"></i>
                             </span>
                             </div>
-                            <div class="result"></div>
                         </div>
                         <!-- to-do list completion message -->
                         <div class="completionMessage text-center" v-else>{{completionMessage}}</div>
@@ -74,6 +73,9 @@
                                 <i class="fas fa-dot-circle"></i>
                             </span> {{save}}
                             <span @click="reundoTask(i)"><i class="iconUndo fas fa-undo "></i></span>
+                            <span v-on:click="removeTasks(i)">
+                                <i class="fas fa-trash-alt"></i>
+                            </span>
 
                         </div>
                     </div>
