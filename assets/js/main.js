@@ -1,8 +1,12 @@
 /* 
     To do List:
         //-stampare in pagina un item per ogni elemento contenuto in un array
-        -ogni item ha una "x" associata: cliccando su di essa, l'item viene rimosso dalla lista
-        -predisporre un input per aggiungere un nuovo item alla lista: digitando il tasto invio oppure ciccando su un pulsante, il testo digitato viene aggiunto alla lista */
+        //-ogni item ha una "x" associata: cliccando su di essa, l'item viene rimosso dalla lista
+        -predisporre un input per aggiungere un nuovo item alla lista: 
+            digitando il tasto invio oppure ciccando su un pulsante, 
+            il testo digitato viene aggiunto alla lista 
+            
+*/
 
 /*  Funzionalitá di Base:
         -La nostra todo list avrá alcune tasks di default predefinite
@@ -21,5 +25,13 @@ var app = new Vue({
             'Studia VueJS',
             'controlla la To Do List'
         ]
+    },
+    methods: {
+        removeTasks(i) {
+            //control that at the click of the delete button actually erases the task
+            /* console.log('remove task' + ' ' + i); */
+            //i use the . splice() method as parameter needs the indece of the task to be deleted and the number of items to be deleted from that index.
+            this.tasks.splice(i, 1);
+        }
     }
 })
