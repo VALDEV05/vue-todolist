@@ -86,8 +86,7 @@
 
                         <div class="task ps-2" v-for="(deleted, i) in deletes">
                             <span class="bulletList pe-2">
-                                <i class="fas fa-dot-circle"></i>
-                            {{deleted}}
+                                <i class="fas fa-dot-circle"></i></span> {{deleted}}
                             <span @click="returnTask(i)">
                                 <i class="fas fa-trash-restore"></i>
                             </span>
