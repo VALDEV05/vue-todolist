@@ -19,6 +19,7 @@
 var app = new Vue({
     el: '#app',
     data: {
+        newTask: '',
         tasks: [
             'Fare la spesa',
             'Porta fuori il cane',
@@ -27,6 +28,13 @@ var app = new Vue({
         ]
     },
     methods: {
+        addTasks() {
+            //check that the function addTasks works correctly
+            /* console.log('aggiungi questa task');
+            console.log(this.newTask); */
+            //use .push() method to add the new task to the array
+            this.tasks.push(this.newTask)
+        },
         removeTasks(i) {
             //control that at the click of the delete button actually erases the task
             /* console.log('remove task' + ' ' + i); */
