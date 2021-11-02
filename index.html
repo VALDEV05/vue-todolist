@@ -16,6 +16,7 @@
         <div class="tasks">
             <input type="text" v-model="newTask">
             <button v-on:click="addTasks">Add</button>
+            <div class="error" v-show="error">Inserisci una nuova task di minimo 5 caratteri</div>
             <div class="task" v-for="(task, i) in tasks">
                 {{task}}
                 <span v-on:click="removeTasks(i)"><i class="fas fa-times-circle"></i></span>

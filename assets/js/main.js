@@ -2,11 +2,14 @@
     To do List:
         //-stampare in pagina un item per ogni elemento contenuto in un array
         //-ogni item ha una "x" associata: cliccando su di essa, l'item viene rimosso dalla lista
-        -predisporre un input per aggiungere un nuovo item alla lista: 
-            digitando il tasto invio oppure ciccando su un pulsante, 
-            il testo digitato viene aggiunto alla lista 
-            
-*/
+        //-predisporre un input per aggiungere un nuovo item alla lista: 
+            //digitando il tasto invio oppure ciccando su un pulsante 
+            //il testo digitato viene aggiunto alla lista 
+        se queste regole 
+            controllare la lunghezza minima della stringa della newTask (5 caratteri)
+            controllare se realmente sono stati digitati caratteri
+        non vengono rispettate allora non pusho nulla
+        */
 
 /*  Funzionalitá di Base:
         -La nostra todo list avrá alcune tasks di default predefinite
@@ -25,15 +28,20 @@ var app = new Vue({
             'Porta fuori il cane',
             'Studia VueJS',
             'controlla la To Do List'
-        ]
+        ],
+        error: false
     },
     methods: {
         addTasks() {
-            //check that the function addTasks works correctly
-            /* console.log('aggiungi questa task');
-            console.log(this.newTask); */
-            //use .push() method to add the new task to the array
-            this.tasks.push(this.newTask)
+            //added the required control, that is that the newTask must be at least 5 characters long and present otherwise shows an error message
+            if (this.newTask != '' && this.newTask.length > 5) {
+                this.tasks.push(this.newTask)
+                this.error = false
+            } else {
+                console.log('errore');
+                this.error = true
+            }
+            this.newTask = ''
         },
         removeTasks(i) {
             //control that at the click of the delete button actually erases the task
